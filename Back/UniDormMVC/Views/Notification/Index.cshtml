@@ -1,0 +1,40 @@
+﻿@model IEnumerable<UniDormMVC.Models.Notification>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.notifID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.notifTitle)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.notifID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.notifTitle)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.notifID  }) |
+
+                @Html.ActionLink("Delete", "Delete", new { id = item.notifID })
+            </td>
+        </tr>
+    }
+
+</table>
